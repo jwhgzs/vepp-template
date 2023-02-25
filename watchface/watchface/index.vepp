@@ -1,0 +1,23 @@
+<!-- this is the special syntax called VML (Vepp Markup Language), you can use it in `.vepp` suffixed files -->
+
+<!-- each element stands for a widget in ZeppOS -->
+<!-- as those in Vue etc., use `:name="expression"` to set a reactive property, `name="text"` to set a static stringify property, and `@name="statements"` to set an event -->
+<text :text="txt + '~'" @click_up="test()"></text>
+
+<!-- special element `script` which allows you to write your own JS -->
+<script>
+    // `$vepp` references to your Vepp instance
+    // `$`     the short form of $vepp.data, i.e. your reactive variables
+    $.txt = 'hello, world'
+    $.test = function () {
+        $.txt += '!'
+    }
+	
+    let watcher = () => {
+        console.log(`variable 'txt' first changed.`)
+    	// use `$vepp.unwatch(key, func)` to cancel watching
+        $vepp.unwatch('txt', watcher)
+    }
+    // use `$vepp.watch(key, func)` to watch your reactive variables
+    $vepp.watch('txt', watcher)
+</script>
