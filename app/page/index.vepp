@@ -14,7 +14,7 @@
     }
 	
     let watcher = () => {
-        console.log(`variable 'txt' first changed.`)
+        console.log(`variable 'txt' was first changed.`)
     	// use `$vepp.unwatch(key, func)` to cancel watching
         $vepp.unwatch('txt', watcher)
     }
