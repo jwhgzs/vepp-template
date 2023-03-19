@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "vepp": "latest"
+  },
+  "devDependencies": {
+    "zeppos-device-types-v1": "latest"
   }
 }
